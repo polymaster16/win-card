@@ -33,6 +33,7 @@ const [link, setLink] = useState("your_email");
 const [level, setLevel] = useState("your_Level");
 const [major, setMajor] = useState("your_Major");
 const [hobby, setHobby] = useState("your_Hobbies");
+const [gender, setGender] = useState("m");
 const [votes, setVotes] = useState(0);
 
 const [clicked, setClicked] = useState(0);
@@ -47,14 +48,14 @@ const sub = ()=>{
   level:level, 
   major:major, 
   hobby:hobby,
-  votes:votes,
+  votes:0,
   link:link,
   email:email, 
+  gender:gender,
   });
   setClicked(1);
 
 }
-
 
     return (
         <div className="container container-sm">
@@ -72,6 +73,22 @@ const sub = ()=>{
               label="Name"
               id="fullWidth"
               onChange={(e) => setName(e.target.value)}
+            />
+          </Box>
+
+
+          <Box
+            className="fild"
+            sx={{
+              width: 350,
+              maxWidth: "100%",
+            }}
+          >
+            <TextField
+              fullWidth
+              label="Gender"
+              id="fullWidth"
+              onChange={(e) => setGender(e.target.value)}
             />
           </Box>
 

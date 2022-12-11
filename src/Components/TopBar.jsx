@@ -6,12 +6,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { red } from '@mui/material/colors';
+
+//const color = red[500];
 import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
+import { useNavigate } from 'react-router-dom';
 
 export default function TopBar() {
+  const navigate= useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color = "secondary">
         <Toolbar>
           <IconButton
             size="large"
@@ -20,7 +25,7 @@ export default function TopBar() {
             aria-label="menu"
             sx={{ mr: 2 }}
             onClick={() => {
-              window.location.href = '/';
+              navigate("/")
             }}
 
           >
@@ -34,4 +39,5 @@ export default function TopBar() {
       </AppBar>
     </Box>
   );
+  
 }

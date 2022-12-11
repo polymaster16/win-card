@@ -23,10 +23,28 @@ import InputBase from '@mui/material/InputBase';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import HowToVoteIcon from '@mui/icons-material/HowToVote';
 
 
 import { db } from '../firebase';
-import {collection, getDoc, addDoc, doc,  setDoc, deleteDoc } from '@firebase/firestore'
+import {collection, getDoc, addDoc, doc,  setDoc, updateDoc } from '@firebase/firestore'
+import { SettingsCellRounded } from '@mui/icons-material';
+
+import {PaymentOperation, Signature} from '@hachther/mesomb';
+
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
+
+
 
 
 function VotingPage() {
@@ -35,12 +53,66 @@ function VotingPage() {
     const price = votes*200;
     const [selectedCandidate, setSelectedCandidate]= useState("oops");
     const [clicked, setClicked] = useState(0);
-    const [phone, setPhone] = useState("000000000");
-    const [mCode, setMCode] = useState("0")
-    const [oCode, setOcode] = useState("#150*2")
-
+    const [phone, setPhone] = useState("");
+ 
+    const mCode ="*126*1*1*677139797*"+price+ "#";
+    const oCode= "#150*1*1*659036855*"+price+ "#";
+             
     const [mtn, setMtn]=useState(false);
     const [orange, setOrange]=useState(false);
+    const code = mtn ? mCode : orange&&oCode ;
+
+    const [valid, setValid]=useState(false);
+   const votesCol= collection(db,"Votes");
+  
+   const newVote = "vote"+ Math.random(10); 
+   const voteDoc=doc(votesCol, newVote);
+ 
+    /*
+    if(mtn === true){
+      setCode(mCode);
+      console.log(code);
+    }
+    else if(orange === true){
+      setCode(oCode);
+      console.log(code);
+    }
+    */
+
+    const addVote =()=>{
+        const candidateDoc=doc(db,"Candidates",name);
+  
+        try {
+          setDoc(candidateDoc,
+            {
+              name: name,
+              level: selectedCandidate.level,
+              hobby: selectedCandidate.hobby,
+              major: selectedCandidate.major,
+              link: selectedCandidate.link,
+              email: selectedCandidate.email,
+              votes:parseInt(parseInt(selectedCandidate.votes) + parseInt(votes)),
+            });
+            console.log("voted ");
+        } catch (error) {
+          console.log(error);
+        }
+    
+        try {
+            setDoc(voteDoc, 
+                {votes: votes,
+                 noc: name,
+                });  
+        } catch (error) {
+            console.log (error); 
+        }
+
+        setTimeout(() => {
+          window.open('/');
+        }, 5000);
+        
+      }
+
 
     async function getSelectedCandidate(n) {
         try {
@@ -64,6 +136,82 @@ function VotingPage() {
          //getSelectedCandidate();
 
       }, [name]);
+
+      
+
+
+      const card = (
+        <React.Fragment>
+          <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              Make {mtn&&"a Momo"} {orange&&"an OM"} transaction of {price}XAF in other to validate your vote
+            </Typography>
+            <Typography variant="h5" component="div">
+             Follow the steps carefully
+            </Typography>
+      
+            <Typography variant="body2">
+              -Click on Blue Button below.
+              <br />
+              -Select your sim.
+              <br />
+             -enter your {mtn&&"Momo"} {orange&&"OM"} account password!
+             <br />
+             -confirm the transaction and come back to this webPage!
+             <br />
+             -Click on "Vote button then your votes will be added immediately"
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="large" variant='contained'
+            startIcon={<PaymentsIcon/>} color='primary'
+            onClick={
+              async ()=> {
+                const payment = new PaymentOperation(
+                  {applicationKey: 'a3586274938ddb73c5d1259fc935a2406d3d4acc',
+                   accessKey: '6e47208b-9ad0-4b53-b834-58db379cdf5c', 
+                   secretKey: '3e52d25f-3640-411d-bb64-3d26ce73e416'});
+                const response = await payment.makeCollect(
+                  100, 
+                  'MTN',
+                   '670981337', 
+                   new Date(),
+                    Signature.nonceGenerator());
+                console.log("operation success:"+ response.isOperationSuccess());
+                console.log("transaction success"+ response.isTransactionSuccess());
+              }
+            }
+                          disabled={valid}
+                                       >Proceed
+                                       </Button>
+
+                                       <Button size="large" variant='contained'
+            startIcon={<PaymentsIcon/>} color='warning'
+            onClick={
+              async ()=> {
+              const payment = new PaymentOperation({
+                applicationKey: 'a3586274938ddb73c5d1259fc935a2406d3d4acc',
+                accessKey: '6e47208b-9ad0-4b53-b834-58db379cdf5c', 
+                secretKey: '3e52d25f-3640-411d-bb64-3d26ce73e416'});
+
+              const response = await payment.makeDeposit(
+                100, 
+                'MTN',
+                 '670981337',
+                  new Date(),
+                   Signature.nonceGenerator());
+              console.log("Operation Success"+response.isOperationSuccess());
+              console.log("Transaction Success"+response.isTransactionSuccess());
+              }
+            }
+                          disabled={valid}
+                                       >
+                                        Deposit
+                                       </Button>
+          </CardActions>
+        </React.Fragment>
+      );
+  
 
     return (
     <div className="container">
@@ -165,10 +313,15 @@ function VotingPage() {
       <CardActions>
        
         <FormControlLabel control={<Switch  color="success"
-        onChange={()=>{setMtn(!mtn);
+      
+        onChange={(e)=>{setMtn(e.target.checked);
+          setOrange(false);
             console.log("MTN: ", mtn)}}
         
-        />} label="Select"  />
+        />
+      }
+         label="Select" 
+         disabled={orange} />
 
       </CardActions>
     </Card>
@@ -194,17 +347,27 @@ function VotingPage() {
       <CardActions>
        
         <FormControlLabel control={<Switch color="warning" 
-        onChange={()=>{setOrange(!orange);
-        console.log("orange: ", orange)}}
-        />} label="Select"  />
+        onChange={(e)=>{setOrange(e.target.checked);
+        console.log("orange: ", orange);
+      setMtn(false);}}
+        />} 
+        label="Select" 
+        disabled={mtn}  />
         
       </CardActions>
     </Card>
     </div>
       }
+  { clicked>=2 
+  &&
+    <div>
+  <Stack sx={{ width: '100%' }} spacing={4}>
+    <Alert severity="success">You selected {mtn&&"Mobile Money"} {orange&&"Orange Money"}</Alert>
+    <Alert severity="info">Enter your {mtn&&"MoMo"} {orange&&"OM"} number</Alert>
 
+  </Stack>
 
-<Paper
+  <Paper
             className="fild"
             component="form"
             sx={{
@@ -221,13 +384,34 @@ function VotingPage() {
               sx={{ ml: 1, flex: 1 }}
               placeholder="Your phone number"
               onChange={(e) => setPhone(e.target.value)}
-              value={phone}
             />
           </Paper>
+          </div>
+}
 
+{clicked >=3 
+    &&
+  <Box 
+ className="fild"
+sx={{ minWidth: 275 }}>
+      <Card variant="outlined" >{card}</Card>
+    </Box>}
 
+{valid&&
+<>
+  <Stack sx={{ width: '100%' }} spacing={4}>
+  <Alert severity="success">Your transaction was succesful </Alert>
+  <Alert severity="info">If it is found that you made a fake transaction,
+   your votes will be cancelled automatically </Alert>
+  <Alert severity="warning">Click on the "Vote" button to complete the process</Alert>
+  </Stack>
+</>
+}
 
-      <Box 
+   {
+    (price>0 && valid===false)
+    &&  
+     <Box 
       className='bu2'
       sx={{
         width: 500 ,
@@ -239,9 +423,29 @@ function VotingPage() {
        size="large"
         color="secondary"
         startIcon={<NavigateNextIcon />} >
-          Continue
+         Continue
         </Button>
-        </Box>
+        </Box>}
+
+        {
+    valid
+    &&  
+     <Box 
+      className='bu2'
+      sx={{
+        width: 500 ,
+        maxWidth: "100%",
+      }}> 
+      <Button
+      onClick={() =>addVote()}
+       variant="contained" 
+       size="large"
+        color="success"
+        startIcon={<HowToVoteIcon/>} >
+         Vote
+        </Button>
+        </Box>}
+
     
     </div> 
      );

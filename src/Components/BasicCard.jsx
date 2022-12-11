@@ -10,7 +10,7 @@ export default function BasicCard(props) {
     <Card sx={{ minHeight: 320, width: '100%' }}>
       <CardCover>
         <img
-          src="https://hips.hearstapps.com/hmg-prod/images/media-personality-kim-kardashian-west-attends-the-wsj-news-photo-1665673553.jpg?crop=0.709xw:1.00xh;0.104xw,0&resize=640:*"
+          src="https://upload.wikimedia.org/wikipedia/en/8/8a/ICT_university_P_Mbarika.jpg"
           srcSet={ props.link}
           loading="lazy"
           alt=""
@@ -30,7 +30,7 @@ export default function BasicCard(props) {
           
           textColor="#D3D3D3"
         >
-           Candidate: #{props.id}
+           Votes: #{props.id}
         </Typography>
       </CardContent>
     </Card>

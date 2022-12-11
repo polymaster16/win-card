@@ -1,0 +1,226 @@
+[debug] [2022-12-11T20:14:53.972Z] ----------------------------------------------------------------------
+[debug] [2022-12-11T20:14:53.978Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-12-11T20:14:53.980Z] CLI Version:   11.16.1
+[debug] [2022-12-11T20:14:53.980Z] Platform:      linux
+[debug] [2022-12-11T20:14:53.980Z] Node Version:  v16.17.1
+[debug] [2022-12-11T20:14:53.989Z] Time:          Sun Dec 11 2022 21:14:53 GMT+0100 (West Africa Standard Time)
+[debug] [2022-12-11T20:14:53.990Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-11T20:14:54.173Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-11T20:14:54.175Z] > authorizing via signed-in user (uili.kam8@gmail.com)
+[debug] [2022-12-11T20:14:54.175Z] [iam] checking project ictu-votingsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-11T20:14:54.181Z] > refreshing access token with scopes: []
+[debug] [2022-12-11T20:14:54.185Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-11T20:14:54.186Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-11T20:15:12.199Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2022-12-11T20:15:12.201Z] > refreshing access token with scopes: []
+[debug] [2022-12-11T20:15:12.203Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-12-11T20:15:12.204Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-11T20:15:16.454Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-12-11T20:15:16.455Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-12-11T20:15:16.471Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem [none]
+[debug] [2022-12-11T20:15:33.389Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem
+[debug] [2022-12-11T20:15:38.413Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-12-11T20:16:04.196Z] ----------------------------------------------------------------------
+[debug] [2022-12-11T20:16:04.201Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-12-11T20:16:04.202Z] CLI Version:   11.16.1
+[debug] [2022-12-11T20:16:04.203Z] Platform:      linux
+[debug] [2022-12-11T20:16:04.203Z] Node Version:  v16.17.1
+[debug] [2022-12-11T20:16:04.204Z] Time:          Sun Dec 11 2022 21:16:04 GMT+0100 (West Africa Standard Time)
+[debug] [2022-12-11T20:16:04.205Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-11T20:16:04.380Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-11T20:16:04.381Z] > authorizing via signed-in user (uili.kam8@gmail.com)
+[debug] [2022-12-11T20:16:04.382Z] [iam] checking project ictu-votingsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-11T20:16:04.388Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions [none]
+[debug] [2022-12-11T20:16:04.389Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions x-goog-quota-user=projects/ictu-votingsystem
+[debug] [2022-12-11T20:16:04.389Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:16:17.592Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions 200
+[debug] [2022-12-11T20:16:17.592Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:16:17.595Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem [none]
+[debug] [2022-12-11T20:16:33.212Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem
+[debug] [2022-12-11T20:16:38.231Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-12-11T20:18:06.069Z] ----------------------------------------------------------------------
+[debug] [2022-12-11T20:18:06.074Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-12-11T20:18:06.076Z] CLI Version:   11.16.1
+[debug] [2022-12-11T20:18:06.076Z] Platform:      linux
+[debug] [2022-12-11T20:18:06.077Z] Node Version:  v16.17.1
+[debug] [2022-12-11T20:18:06.078Z] Time:          Sun Dec 11 2022 21:18:06 GMT+0100 (West Africa Standard Time)
+[debug] [2022-12-11T20:18:06.078Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-11T20:18:06.264Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-11T20:18:06.266Z] > authorizing via signed-in user (uili.kam8@gmail.com)
+[debug] [2022-12-11T20:18:06.266Z] [iam] checking project ictu-votingsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-11T20:18:06.274Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions [none]
+[debug] [2022-12-11T20:18:06.275Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions x-goog-quota-user=projects/ictu-votingsystem
+[debug] [2022-12-11T20:18:06.276Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:18:09.978Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions 200
+[debug] [2022-12-11T20:18:09.979Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:18:09.982Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem [none]
+[debug] [2022-12-11T20:18:17.400Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem 200
+[debug] [2022-12-11T20:18:17.401Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem {"projectId":"ictu-votingsystem","projectNumber":"596818382551","displayName":"ICTU-VotingSystem","name":"projects/ictu-votingsystem","resources":{"hostingSite":"ictu-votingsystem","realtimeDatabaseInstance":"ictu-votingsystem-default-rtdb"},"state":"ACTIVE","etag":"1_d47eb2f8-63b4-4e8f-ac84-0f84917b0595"}
+[info] 
+[info] === Deploying to 'ictu-votingsystem'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-11T20:18:17.421Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions [none]
+[debug] [2022-12-11T20:18:17.421Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-11T20:18:35.902Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-12-11T20:23:12.532Z] ----------------------------------------------------------------------
+[debug] [2022-12-11T20:23:12.539Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-12-11T20:23:12.540Z] CLI Version:   11.16.1
+[debug] [2022-12-11T20:23:12.541Z] Platform:      linux
+[debug] [2022-12-11T20:23:12.541Z] Node Version:  v16.17.1
+[debug] [2022-12-11T20:23:12.543Z] Time:          Sun Dec 11 2022 21:23:12 GMT+0100 (West Africa Standard Time)
+[debug] [2022-12-11T20:23:12.543Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-11T20:23:12.783Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-11T20:23:12.785Z] > authorizing via signed-in user (uili.kam8@gmail.com)
+[debug] [2022-12-11T20:23:12.786Z] [iam] checking project ictu-votingsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-11T20:23:12.799Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions [none]
+[debug] [2022-12-11T20:23:12.800Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions x-goog-quota-user=projects/ictu-votingsystem
+[debug] [2022-12-11T20:23:12.801Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:26:15.807Z] ----------------------------------------------------------------------
+[debug] [2022-12-11T20:26:15.811Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-12-11T20:26:15.813Z] CLI Version:   11.16.1
+[debug] [2022-12-11T20:26:15.813Z] Platform:      linux
+[debug] [2022-12-11T20:26:15.813Z] Node Version:  v16.17.1
+[debug] [2022-12-11T20:26:15.814Z] Time:          Sun Dec 11 2022 21:26:15 GMT+0100 (West Africa Standard Time)
+[debug] [2022-12-11T20:26:15.815Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-11T20:26:15.993Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-11T20:26:15.994Z] > authorizing via signed-in user (uili.kam8@gmail.com)
+[debug] [2022-12-11T20:26:15.995Z] [iam] checking project ictu-votingsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-12-11T20:26:16.000Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions [none]
+[debug] [2022-12-11T20:26:16.001Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions x-goog-quota-user=projects/ictu-votingsystem
+[debug] [2022-12-11T20:26:16.002Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:26:59.262Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions 200
+[debug] [2022-12-11T20:26:59.263Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ictu-votingsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-12-11T20:26:59.268Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem [none]
+[debug] [2022-12-11T20:27:09.808Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem 200
+[debug] [2022-12-11T20:27:09.809Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ictu-votingsystem {"projectId":"ictu-votingsystem","projectNumber":"596818382551","displayName":"ICTU-VotingSystem","name":"projects/ictu-votingsystem","resources":{"hostingSite":"ictu-votingsystem","realtimeDatabaseInstance":"ictu-votingsystem-default-rtdb"},"state":"ACTIVE","etag":"1_d47eb2f8-63b4-4e8f-ac84-0f84917b0595"}
+[info] 
+[info] === Deploying to 'ictu-votingsystem'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-12-11T20:27:09.831Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions [none]
+[debug] [2022-12-11T20:27:09.831Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-12-11T20:27:27.685Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions 200
+[debug] [2022-12-11T20:27:27.686Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions {"name":"projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[ictu-votingsystem]: beginning deploy... 
+[info] i  hosting[ictu-votingsystem]: found 15 files in build 
+[debug] [2022-12-11T20:28:43.323Z] [hosting] uploading with 200 concurrency
+[debug] [2022-12-11T20:28:44.589Z] [hosting] hash cache [YnVpbGQ] stored for 15 files
+[debug] [2022-12-11T20:28:44.590Z] [hosting][hash queue][FINAL] {"max":1231,"min":53,"avg":143.13333333333333,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":1259}
+[debug] [2022-12-11T20:28:44.591Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles [none]
+[debug] [2022-12-11T20:28:44.592Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles {"files":{"/asset-manifest.json":"1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f","/index.html":"3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30","/favicon.jpg":"27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4","/logo192.png":"76c449ccb9cd117c2f2338f091b18f7050f3210e249b2228f5c81b23f34377cd","/manifest.json":"003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5","/logo512.png":"7779210d56c1f3741e2e487799fe3092def4fa6ac450a60532b807c3a8971205","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/static/css/main.6df4fbb1.css":"9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5","/static/js/787.b4bc348e.chunk.js":"c1ee43117c43e94b912f9bf2d490545158037c66b8ff0ee410e93e9f0b26fba2","/static/css/main.6df4fbb1.css.map":"47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf","/static/js/787.b4bc348e.chunk.js.map":"fac13af3e5a06fc82e02995c22e22b78990c477b337fe007092d89be8f42bb20","/static/js/main.840a07a6.js.LICENSE.txt":"99033598b189e6a39c41eeb4948bca9cb811a22cda64c716e69acd873afd583a","/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg":"7d3ee40656c5a13fa0b04821777c1ba40bd028faa5c0e7475f61021d03fd35d6","/static/js/main.840a07a6.js":"a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6","/static/js/main.840a07a6.js.map":"f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff"}}
+[debug] [2022-12-11T20:29:28.222Z] [populateQueue] Retrying task index 0
+[debug] [2022-12-11T20:29:28.224Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles [none]
+[debug] [2022-12-11T20:29:28.224Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles {"files":{"/asset-manifest.json":"1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f","/index.html":"3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30","/favicon.jpg":"27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4","/logo192.png":"76c449ccb9cd117c2f2338f091b18f7050f3210e249b2228f5c81b23f34377cd","/manifest.json":"003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5","/logo512.png":"7779210d56c1f3741e2e487799fe3092def4fa6ac450a60532b807c3a8971205","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/static/css/main.6df4fbb1.css":"9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5","/static/js/787.b4bc348e.chunk.js":"c1ee43117c43e94b912f9bf2d490545158037c66b8ff0ee410e93e9f0b26fba2","/static/css/main.6df4fbb1.css.map":"47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf","/static/js/787.b4bc348e.chunk.js.map":"fac13af3e5a06fc82e02995c22e22b78990c477b337fe007092d89be8f42bb20","/static/js/main.840a07a6.js.LICENSE.txt":"99033598b189e6a39c41eeb4948bca9cb811a22cda64c716e69acd873afd583a","/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg":"7d3ee40656c5a13fa0b04821777c1ba40bd028faa5c0e7475f61021d03fd35d6","/static/js/main.840a07a6.js":"a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6","/static/js/main.840a07a6.js.map":"f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff"}}
+[debug] [2022-12-11T20:29:30.647Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles 200
+[debug] [2022-12-11T20:29:30.648Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708:populateFiles {"uploadRequiredHashes":["003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5","1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f","27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4","3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30","9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5","a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6","47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf","f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files"}
+[debug] [2022-12-11T20:29:30.663Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5 [none]
+[debug] [2022-12-11T20:29:30.664Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5 [stream]
+[debug] [2022-12-11T20:29:30.668Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f [none]
+[debug] [2022-12-11T20:29:30.669Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f [stream]
+[debug] [2022-12-11T20:29:30.672Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4 [none]
+[debug] [2022-12-11T20:29:30.673Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4 [stream]
+[debug] [2022-12-11T20:29:30.676Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30 [none]
+[debug] [2022-12-11T20:29:30.676Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30 [stream]
+[debug] [2022-12-11T20:29:30.679Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5 [none]
+[debug] [2022-12-11T20:29:30.679Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5 [stream]
+[debug] [2022-12-11T20:29:30.682Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 [none]
+[debug] [2022-12-11T20:29:30.683Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 [stream]
+[debug] [2022-12-11T20:29:30.685Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf [none]
+[debug] [2022-12-11T20:29:30.689Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf [stream]
+[debug] [2022-12-11T20:29:30.692Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff [none]
+[debug] [2022-12-11T20:29:30.693Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff [stream]
+[debug] [2022-12-11T20:29:30.697Z] [hosting][populate queue][FINAL] {"max":2440,"min":2440,"avg":2440,"active":0,"complete":1,"success":1,"errored":0,"retried":1,"total":1,"elapsed":46112}
+[debug] [2022-12-11T20:29:30.697Z] [hosting] uploads queued: 8
+[debug] [2022-12-11T20:29:34.733Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30 200
+[debug] [2022-12-11T20:29:34.734Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/3801f1468c3611680848aab526f208b09d16fed8697c7c74326aa63436a93a30 [stream]
+[debug] [2022-12-11T20:29:35.512Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5 200
+[debug] [2022-12-11T20:29:35.513Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/003fbbbe3ea73954a1b3a1b5efb39e4f72fb859ef3bed9cefa43fd04812b82f5 [stream]
+[debug] [2022-12-11T20:29:37.947Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf 200
+[debug] [2022-12-11T20:29:37.947Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/47744eab217a503ba2b56f1b8ccb4e89e8ccee46a6d3c71fecaae2e51f2a3ccf [stream]
+[debug] [2022-12-11T20:29:41.604Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4 200
+[debug] [2022-12-11T20:29:41.604Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/27d5efde69705fe08035587bab6dbf5277c2a1f6a932b36d584e50d8ce66e3e4 [stream]
+[debug] [2022-12-11T20:29:42.635Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5 200
+[debug] [2022-12-11T20:29:42.636Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/9829f04a08aa4eefdee9d2af9194a46b013eba8b0f8975f6826bd07b054accb5 [stream]
+[debug] [2022-12-11T20:30:00.221Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff 200
+[debug] [2022-12-11T20:30:00.222Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/f5b48ba737e099d2f00c6d9917efe87faf7aa05142d082f0dc56402ab0cbefff [stream]
+[debug] [2022-12-11T20:30:01.060Z] [uploadQueue] Retrying task 1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f
+[debug] [2022-12-11T20:30:01.063Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f [none]
+[debug] [2022-12-11T20:30:01.063Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f [stream]
+[debug] [2022-12-11T20:30:01.068Z] [uploadQueue] Retrying task a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6
+[debug] [2022-12-11T20:30:01.069Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 [none]
+[debug] [2022-12-11T20:30:01.069Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 [stream]
+[debug] [2022-12-11T20:30:04.828Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f 200
+[debug] [2022-12-11T20:30:04.828Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/1b2bfa20586d918703e2dfae50369b489ff20989f16ef5c8311c2993d1da343f [stream]
+[debug] [2022-12-11T20:30:20.074Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 200
+[debug] [2022-12-11T20:30:20.075Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ictu-votingsystem/versions/62db3600e15db708/files/a610dd26fc0ed39ba881183a567719efaee3367f85ed9178d7e8f821e9d5d0e6 [stream]
+[debug] [2022-12-11T20:30:20.077Z] [hosting][upload queue][FINAL] {"max":29560,"min":3772,"avg":11436,"active":0,"complete":8,"success":8,"errored":0,"retried":2,"total":8,"elapsed":49422}
+[info] ✔  hosting[ictu-votingsystem]: file upload complete 
+[debug] [2022-12-11T20:30:20.082Z] [hosting] deploy completed after 96787ms
+[debug] [2022-12-11T20:30:20.088Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "ictu-votingsystem"
+    },
+    "version": "projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708"
+  }
+]
+[info] i  hosting[ictu-votingsystem]: finalizing version... 
+[debug] [2022-12-11T20:30:20.098Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions/62db3600e15db708 updateMask=status%2Cconfig
+[debug] [2022-12-11T20:30:20.098Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions/62db3600e15db708 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-12-11T20:30:24.360Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions/62db3600e15db708 200
+[debug] [2022-12-11T20:30:24.362Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/versions/62db3600e15db708 {"name":"projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-11T20:27:27.055Z","createUser":{"email":"uili.kam8@gmail.com"},"finalizeTime":"2022-12-11T20:30:22.462658Z","finalizeUser":{"email":"uili.kam8@gmail.com"}}
+[debug] [2022-12-11T20:30:24.362Z] [hosting] finalized version for ictu-votingsystem:[object Object]
+[info] ✔  hosting[ictu-votingsystem]: version finalized 
+[info] i  hosting[ictu-votingsystem]: releasing new version... 
+[debug] [2022-12-11T20:30:24.365Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/channels/live/releases versionName=projects%2F596818382551%2Fsites%2Fictu-votingsystem%2Fversions%2F62db3600e15db708
+[debug] [2022-12-11T20:30:24.365Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/channels/live/releases {}
+[debug] [2022-12-11T20:30:27.428Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/channels/live/releases 200
+[debug] [2022-12-11T20:30:27.428Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ictu-votingsystem/channels/live/releases {"name":"projects/596818382551/sites/ictu-votingsystem/channels/live/releases/1670790625160303","version":{"name":"projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-11T20:27:27.055Z","createUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"},"finalizeTime":"2022-12-11T20:30:22.462658Z","finalizeUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"}},"type":"DEPLOY","releaseTime":"2022-12-11T20:30:25.160303881Z","releaseUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"}}
+[debug] [2022-12-11T20:30:27.429Z] [hosting] release: {"name":"projects/596818382551/sites/ictu-votingsystem/channels/live/releases/1670790625160303","version":{"name":"projects/596818382551/sites/ictu-votingsystem/versions/62db3600e15db708","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-12-11T20:27:27.055Z","createUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"},"finalizeTime":"2022-12-11T20:30:22.462658Z","finalizeUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"}},"type":"DEPLOY","releaseTime":"2022-12-11T20:30:25.160303881Z","releaseUser":{"email":"uili.kam8@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AEdFTp4vQ99PGcinuAO8hGEL_HRLofPW6XArMBiETURB=mo"}}
+[info] ✔  hosting[ictu-votingsystem]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/ictu-votingsystem/overview
+[info] Hosting URL: https://ictu-votingsystem.web.app
+[debug] [2022-12-11T20:30:37.259Z] Error: Timed out.
+    at Timeout.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -3,18 +3,23 @@ import BasicCard from '../Components/BasicCard';
 
 import { db } from '../firebase';
 import {collection, getDocs, addDoc, doc,  setDoc, deleteDoc } from '@firebase/firestore'
-
+import FadeIn from 'react-fade-in';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
-const [misses, setMisses] = useState([{name:"Miss"}])
+const [misses, setMisses] = useState([{name:"Check your internet connection"}])
 const candidateCol= collection(db, "Candidates");
 
+const [m, setM] = useState(0)
 function sub(e){
     console.log(e, " stored")
-    window.location.href = '/VotingPage';
+    window.location.href = '/Main/Votes'
  localStorage.setItem("@candidateName", JSON.stringify(e));
+ setM(1);
 }
+
+const navigate = useNavigate();
 
     const getItems = async (n)=> {
         try {
@@ -26,31 +31,35 @@ function sub(e){
 
         useEffect(() => {
           getItems(candidateCol)
-          }
+          },[m]
         )
         
     return (
         <div className=' '>
-            <p>
-                2022 Edition
-            </p>
-            <div className='container container-sm m4'>
+
+            <FadeIn 
+            delay= {"1000"}
+            className='container container-sm m4'>
                 
                
-            <BasicCard sub={() => sub}/>
+            <BasicCard 
+            name="Select your favourite"
+            link="https://nodeassets.nbcnews.com/cdnassets/projects/socialshareimages-bento/og-select1200x630.png"
+            id="0"/>
 
 {
     misses.map((miss) => 
     <BasicCard 
-    sub={() => sub(miss.name)}
+    sub={() => sub(miss.name)
+    }
     name={miss.name}
     link={miss.link}
-    id='2224'
+    id={miss.votes}
     />
       )
 }
 
-           </div>
+           </FadeIn>
 
             </div>
       );
