@@ -30,6 +30,7 @@ export default function Home(){
     const [clicked, setClicked] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
     const {id} = useParams();
+    const {nerve} = useParams();
     const [str, setStr] = React.useState()
 
     function whenClicked(){
@@ -78,7 +79,7 @@ const verifyTicket = async() => {
    {loading===false &&
    <>
         <div className="text-6xl text-center lg:text-7xl text-white p-10 font-extrabold">
-            La Roue Qui Tourne
+            La Roue Qui Tourne ...
         </div>
 
           <div className='autos scara'>
