@@ -270,9 +270,9 @@ const { id } = useParams();
           {setPaymentMethods(e.target.value)
             console.log(paymentMethods)
           }}
-        handleClose={()=>{
+        handleClose={async()=>{
             setOpen1(false)
-            deleteTicket();
+            await deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
@@ -291,9 +291,9 @@ const { id } = useParams();
           {setPaymentMethods(e.target.value)
             console.log(paymentMethods)
           }}
-        handleClose={()=>{
+        handleClose={async()=>{
             setOpen2(false)
-            deleteTicket();
+           await deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
@@ -311,9 +311,9 @@ const { id } = useParams();
           {setPaymentMethods(e.target.value)
             console.log(paymentMethods)
           }}
-        handleClose={()=>{
+        handleClose={async()=>{
             setOpen3(false)
-            deleteTicket();
+            await deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
