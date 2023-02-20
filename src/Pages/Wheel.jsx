@@ -68,7 +68,12 @@ async function pay(amount){
  
 }
 
-
+ const deleteTicket= async()=>{
+  await database
+  .from('tickets')
+  .delete()
+  .eq('name', id)
+ }
 
 const verifyTicket = async() => {
   //const str2 = ref()
@@ -81,6 +86,10 @@ const verifyTicket = async() => {
 
   console.log("data : "+ JSON.stringify(data))
   setLoading(false)
+
+  if (data[0] == (null||undefined)){
+    window.location.href = 'https://www.winmooney.com/#/rooms';
+  }
 
   }
   catch(error) {
@@ -245,6 +254,8 @@ const { id } = useParams();
            <Modal0 open = {open0} 
            handleClose={()=>{
             setOpen0(false)
+            deleteTicket();
+
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}/>
 
@@ -261,6 +272,7 @@ const { id } = useParams();
           }}
         handleClose={()=>{
             setOpen1(false)
+            deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
@@ -281,6 +293,7 @@ const { id } = useParams();
           }}
         handleClose={()=>{
             setOpen2(false)
+            deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
@@ -300,6 +313,7 @@ const { id } = useParams();
           }}
         handleClose={()=>{
             setOpen3(false)
+            deleteTicket();
              window.location.href = 'https://www.winmooney.com/#/rooms'
            }}
            loader={loading}
