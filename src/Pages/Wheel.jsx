@@ -221,18 +221,18 @@ const { id } = useParams();
       verifyTicket();
        console.log("randomNumber: " + randomNumber);
         if(randomNumber === 1){
-            spin1000();
+            spin0A();
         } else
         if((randomNumber > 0) && (randomNumber< 6)){
             spin0A();
         } else
-        if((randomNumber > 11) && (randomNumber< 16)){
+        if((randomNumber > 10) && (randomNumber< 16)){
             spin0A();
         } else
         if(randomNumber === 6){ 
             spin500();
         } else
-        if( (randomNumber > 6) && (randomNumber< 12)){
+        if( (randomNumber > 6) && (randomNumber< 10)){
             spin50();
         }
     
