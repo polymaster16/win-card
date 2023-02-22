@@ -9,6 +9,9 @@ import App from './Pages/App';
 import Home from './Pages/Home';
 import reportWebVitals from './reportWebVitals';
 import Wheel from './Pages/Wheel';
+import Wheel2 from './Pages/Wheel2';
+import Home2 from './Pages/Home2';
+
 
 const router = createBrowserRouter([
   {
@@ -19,10 +22,17 @@ const router = createBrowserRouter([
     path: "/app",
     element: <App/>,
   },
-  ,
   {
     path: "/wheel/:id",
     element: <Wheel/>,
+  },
+  {
+    path: "/:id/x7",
+    element: <Home2/>,
+  },
+  {
+    path: "/:id/x7/wheel",
+    element: <Wheel2/>,
   },
 ]);
 

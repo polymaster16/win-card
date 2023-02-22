@@ -27,6 +27,18 @@ code {
   background-attachment: fixed;
 }
 
+.img2 {
+  width: auto;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('https://cdn.pixabay.com/photo/2014/12/10/06/49/venetian-562762_960_720.jpg');
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
 .shade1{
   width: auto;
   height: 100vh;
@@ -34,6 +46,12 @@ code {
   bg-opacity-50 
 }
 
+.shade2{
+  width: auto;
+  height: 100vh;
+  @apply bg-black
+  bg-opacity-70 
+}
 .autos{
   margin-left: auto;
   margin-right: auto;

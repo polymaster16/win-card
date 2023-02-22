@@ -2,7 +2,7 @@ import wheelB1 from '../assets/wheelB1.png';
 import wheel2 from '../assets/wheel2.png';
 import Modal0 from '../Components/Modal0'
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Modal1 from '../Components/Modal1';
 import axios from 'axios';
 import {PaymentOperation, Signature} from '@hachther/mesomb';
@@ -13,11 +13,12 @@ import database from '../supabase';
 
 
 
-function Wheel() {
+function Wheel2() {
 
     const [currentPosition, setCurrentPosition] = useState('rotate(0deg)');
     const myDivRef = useRef();
-    const randomNumber = Math.floor(Math.random() * 15) + 1;
+    const randomNumber = Math.floor(Math.random() * 50) + 1;
+    const navigate = useNavigate()
 
 const [pos1, setPos1] = useState({
     transform: 'rotate(0deg)'
@@ -54,13 +55,14 @@ async function pay(amount){
 
   if(response.isOperationSuccess || response.isTransactionSuccess){
     alert("succesful transaction. Check your balance")
-    await deleteTicket();
-    window.location.href = 'https://www.winmooney.com/#/rooms';
+    navigate(`/${id}/x7`)
+    //window.location.href = 'https://www.winmooney.com/#/rooms';
   }
 
   } catch (error) {
     console.log(error)
     alert("Error: "+ error.message + "---Verifiez vos informations et recommencez")
+    navigate(`/${id}/x7`)
     //pay(amount);
     setLoading(false)
     setPhoneNumber("");
@@ -68,13 +70,6 @@ async function pay(amount){
   }
  
 }
-
- const deleteTicket= async()=>{
-  await database
-  .from('tickets')
-  .delete()
-  .eq('name', id)
- }
 
 const verifyTicket = async() => {
   //const str2 = ref()
@@ -220,19 +215,19 @@ const { id } = useParams();
       console.log("id: "+ id)
       verifyTicket();
        console.log("randomNumber: " + randomNumber);
-        if(randomNumber === 1){
+        if(randomNumber === 44){
             spin1000();
         } else
-        if((randomNumber > 0) && (randomNumber< 6)){
+        if((randomNumber >= 0) && (randomNumber<= 30)){
             spin0A();
         } else
-        if((randomNumber > 11) && (randomNumber< 16)){
+        if((randomNumber > 44) && (randomNumber<= 50)){
             spin0A();
         } else
         if(randomNumber === 6){ 
             spin500();
         } else
-        if( (randomNumber > 6) && (randomNumber< 12)){
+        if( (randomNumber > 30) && (randomNumber< 44)){
             spin50();
         }
     
@@ -241,6 +236,8 @@ const { id } = useParams();
 
 
     return (
+        <div className="img2">
+        <div className="shade2">
         <div className='tc'>
              <div className="wheelB">
             <img 
@@ -255,9 +252,7 @@ const { id } = useParams();
            <Modal0 open = {open0} 
            handleClose={()=>{
             setOpen0(false)
-            deleteTicket();
-
-             window.location.href = 'https://www.winmooney.com/#/rooms'
+            navigate(`/${id}/x7`)
            }}/>
 
 <Modal1 open = {open1} 
@@ -273,8 +268,8 @@ const { id } = useParams();
           }}
         handleClose={async()=>{
             setOpen1(false)
-            await deleteTicket();
-             window.location.href = 'https://www.winmooney.com/#/rooms'
+            navigate(`/${id}/x7`)
+
            }}
            loader={loading}
            phone={phoneNumber}
@@ -294,8 +289,8 @@ const { id } = useParams();
           }}
         handleClose={async()=>{
             setOpen2(false)
-           await deleteTicket();
-             window.location.href = 'https://www.winmooney.com/#/rooms'
+            navigate(`/${id}/x7`)
+
            }}
            loader={loading}
            phone={phoneNumber}
@@ -314,14 +309,14 @@ const { id } = useParams();
           }}
         handleClose={async()=>{
             setOpen3(false)
-            await deleteTicket();
-             window.location.href = 'https://www.winmooney.com/#/rooms'
+            navigate(`/${id}/x7`)
+
            }}
            loader={loading}
            phone={phoneNumber}
            />
-               </div>  
+               </div>   </div>  </div> 
     );
 }
 
-export default Wheel;
+export default Wheel2;

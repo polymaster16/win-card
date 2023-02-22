@@ -25,18 +25,40 @@ const theme = createTheme({
 });
 
 
-export default function Home(){
+export default function Home2(){
     const navigate = useNavigate();
     const [clicked, setClicked] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
     const {id} = useParams();
     const {nerve} = useParams();
-    const [str, setStr] = React.useState()
+    const [ticket, setTicket] = React.useState({})
 
-    function whenClicked(){
+    const [count, setCount] = React.useState(0)
+
+
+    async function whenClicked(){
+       await updateCount()
         setClicked(true)
-        setTimeout(() => { navigate(`/wheel/${id}`);}, 2000);    
+      //  setTimeout(() => { navigate(`x7/wheel/${id}`);}, 2000);   
+      setTimeout(() => { navigate(`/${id}/x7/wheel`);}, 2000);    
+ 
     }
+
+    async function updateCount(){
+      try{
+ await database
+  .from('tickets')
+  .update({ count: parseInt(count-1) })
+  .eq('name', id)
+} catch(err){console.log("In updateCount: ", err.message);}
+    } 
+
+    const deleteTicket= async()=>{
+      await database
+      .from('tickets')
+      .delete()
+      .eq('name', id)
+     }
 
 
 const verifyTicket = async() => {
@@ -49,30 +71,40 @@ const verifyTicket = async() => {
   .eq('name', id)
 
   console.log("data : "+ JSON.stringify(data))
+   
+   setCount(data[0].count)
+  
+  //  console.log("count : "+ JSON.stringify(ticket.count))
   setLoading(false)
-
-  if (data[0].name.includes('wh-2')){
-   navigate(`/${id}/x7`);
-  }
 
   if (data[0] == (null||undefined)){
     window.location.href = 'https://www.winmooney.com/#/rooms';
   }
+  if(data[0].count == 0){
+    deleteTicket()
+   window.location.href = 'https://www.winmooney.com/#/rooms';
+
 
   }
+  }
   catch(error) {
-    alert("error: "+error.message)
-    window.location.href = 'https://www.winmooney.com/#/rooms';
+    alert("error in veryfy ticket: "+error.message)
+    //window.location.href = 'https://www.winmooney.com/#/rooms';
 }
 }
     React.useEffect(() => {
-      localStorage.setItem('@counter', 7)
-      console.log("id: "+ id)
-      verifyTicket();
+      console.log("id: "+ id);
+       verifyTicket();
+      console.log("Ticket: "+ticket)
+
+
+
     }, [])
     
 
     return(
+        <div className="img2">
+            <div className="shade2">
         <div className=' autosy
                 grid grid-cols gap 4 align-middle justify-center items-center'>
         { loading &&
@@ -84,7 +116,7 @@ const verifyTicket = async() => {
    {loading===false &&
    <>
         <div className="text-6xl text-center lg:text-7xl text-white p-10 font-extrabold">
-            La Roue Qui Tourne ...
+            La Roue Qui Tourne x{count} ...
         </div>
 
           <div className='autos scara'>
@@ -105,6 +137,8 @@ const verifyTicket = async() => {
             </div>
             </>
           }
+            </div>
+            </div>
             </div>
     )
 
