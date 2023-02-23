@@ -41,7 +41,7 @@ async function pay(amount){
   setLoading(true)
   try {
     const payment = new PaymentOperation(
-      {applicationKey: '614337b48566fd6aa0abf08502b9ac95376193b7',
+      {applicationKey: 'b107e205bd537796171458c1339ed29c7d684c69',
        accessKey: '6e47208b-9ad0-4b53-b834-58db379cdf5c',
         secretKey: '3e52d25f-3640-411d-bb64-3d26ce73e416'});
   
