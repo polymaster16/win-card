@@ -17,7 +17,7 @@ function Wheel2() {
 
     const [currentPosition, setCurrentPosition] = useState('rotate(0deg)');
     const myDivRef = useRef();
-    const randomNumber = Math.floor(Math.random() * 50) + 1;
+    const randomNumber = Math.floor(Math.random() * 20) + 1;
     const navigate = useNavigate()
 
 const [pos1, setPos1] = useState({
@@ -215,23 +215,28 @@ const { id } = useParams();
       console.log("id: "+ id)
       verifyTicket();
        console.log("randomNumber: " + randomNumber);
-        if(randomNumber === 44){
+        if(randomNumber === 1){
             spin1000();
         } else
-        if((randomNumber >= 0) && (randomNumber<= 30)){
+        if((randomNumber >= 2) && (randomNumber<= 10)){
             spin0A();
         } else
-        if((randomNumber > 44) && (randomNumber<= 50)){
-            spin0A();
+        if((randomNumber > 10) && (randomNumber<= 15)){
+            spin50();
         } else
         if(randomNumber === 6){ 
             spin500();
         } else
-        if( (randomNumber > 30) && (randomNumber< 44)){
+        if( (randomNumber > 16) && (randomNumber< 19)){
             spin50();
-        }
-    
-          
+        } else
+        if(randomNumber === 20){ 
+            spin500();
+        } 
+        else
+        if(randomNumber === 0){ 
+            1000();
+        }     
     }, []);
 
 
