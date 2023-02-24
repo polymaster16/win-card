@@ -41,7 +41,7 @@ const style = {
   p: 4,
 };
 
-export default function Modal3(props) {
+export default function CardComponent(props) {
 
   return (
     <div>
@@ -53,14 +53,12 @@ export default function Modal3(props) {
       >
         <Box sx={style}>
         <img
-         src="https://cdn.pixabay.com/animation/2022/07/29/09/35/09-35-52-989_512.gif"
+         src={props.image}
         alt=""/>
           <div class="text-2xl font-bold text-center mt-4">
-            Félicitation Vous avez gagné 1000 xaf!!!
+            {props.message}
           </div>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Remplissez le formulaire si dessous pour encaisser vos fonds
-          </Typography>
+      
 
            <div className='my-4'>
           <FormControl fullWidth>

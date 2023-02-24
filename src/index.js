@@ -8,7 +8,10 @@ import './index.css';
 import App from './Pages/App';
 import Home from './Pages/Home';
 import reportWebVitals from './reportWebVitals';
-import Wheel from './Pages/Wheel';
+import Cards from './Pages/Cards';
+import Home2 from './Pages/Home2';
+import Cards2 from './Pages/Cards2';
+
 
 const router = createBrowserRouter([
   {
@@ -16,13 +19,21 @@ const router = createBrowserRouter([
     element: <Home/>,
   },
   {
+    path: "/luck/:id",
+    element: <Cards/>,
+  },
+  {
     path: "/app",
     element: <App/>,
   },
-  ,
+  , 
   {
-    path: "/wheel/:id",
-    element: <Wheel/>,
+    path: "/x5/:id",
+    element: <Home2/>,
+  },
+  {
+    path: "/luck/x5/:id",
+    element: <Cards2/>,
   },
 ]);
 
