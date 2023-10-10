@@ -11,11 +11,12 @@ import reportWebVitals from './reportWebVitals';
 import Cards from './Pages/Cards';
 import Home2 from './Pages/Home2';
 import Cards2 from './Pages/Cards2';
+import Dropbot from './Pages/Dropbot';
 
 
 const router = createBrowserRouter([
   {
-    path: "/:id",
+    path: "/",
     element: <Home/>,
   },
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/luck/x5/:id",
     element: <Cards2/>,
+  },
+  {
+    path: "/dropbotDeposit/:id",
+    element: <Dropbot/>,
   },
 ]);
 
