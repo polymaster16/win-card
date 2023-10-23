@@ -4,10 +4,12 @@ import {Button, CircularProgress} from '@mui/material'
 import {PaymentOperation, Signature} from '@hachther/mesomb';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string'; // Install this package if you haven't already
+import { client } from "../sanityclient";
 
 export default function Dropbot(){
  const [loading, setLoading] = useState(false)
-
+ 
+ const [hexcom, setHexCom] = useState()
  const location = useLocation();
   const queryParams = queryString.parse(location.search);
 
@@ -16,12 +18,25 @@ export default function Dropbot(){
   const paymentOperator = queryParams.paymentOperator || '';
   const paymentNumber = queryParams.paymentNumber || '';
   const paymentAmount = queryParams.paymentAmount || '';
+  const commissionId = queryParams.commissionId || '';
 
 
     async function pay(amount){
        // console.log(phoneNumber)
-        setLoading(true)
-        try {
+        setLoading(true)    
+        const commissions  =  await client.fetch('*[_type == "commissions"]{id,_id,collected}');
+         const xxx = commissions.filter(x=> x.id === parseInt(commissionId))[0]
+        //  console.log(commissions)
+         console.log(xxx)
+
+         if(!!xxx.collected){
+           window.location.href = 'https://www.dropbot.online/error'
+
+         }
+
+         else{
+            client.patch(xxx._id).set({collected: true}).commit().then(async(res)=>{
+               try {
           const payment = new PaymentOperation(
             {applicationKey: '32c29ba64f8774db5a12cdba12f4efb346048183',
              accessKey: 'a10f86a0-8f0d-466d-abc8-0c661fbd8908',
@@ -49,6 +64,13 @@ export default function Dropbot(){
          // setPhoneNumber("");
         }
        
+            }).catch((err)=>console.log(err))
+
+         }
+
+
+
+      
       }
 
     return(
@@ -62,8 +84,8 @@ export default function Dropbot(){
             <p>Payment Number: {paymentNumber}</p>
             <p>Payment Amount: {paymentAmount}</p> */}
 {     !loading ?     
-  <button onClick={()=>pay()} class='p-2 bg-blue-600 rounded-sm mt-4 font-bold'>CLICK HERE TO COLLECT</button>
-    :   <button onClick={()=>pay()} class='p-2 bg-green-600 rounded-full mt-4 font-bold spins p-2'> <CircularProgress indeterminate
+  <button onClick={()=>pay()} className='p-2 bg-blue-600 rounded-sm mt-4 font-bold'>CLICK HERE TO COLLECT</button>
+    :   <button onClick={()=>pay()} className=' bg-green-600 rounded-full mt-4 font-bold spins p-2'> <CircularProgress indeterminate
     color="primary" thickness={9}/></button>
 
 }      
