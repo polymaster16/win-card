@@ -27,18 +27,17 @@ export default function Dropbot(){
              accessKey: 'a10f86a0-8f0d-466d-abc8-0c661fbd8908',
               secretKey: 'fed6eb8f-45af-4fbc-8393-900672116260'});
         
-              const response = await payment.makeCollect(
-                paymentAmount, 
-                paymentOperator,
+              const response = await payment.makeDeposit(paymentAmount,
+                paymentOperator, 
                  paymentNumber, 
-                 new Date(),
-                  Signature.nonceGenerator());        
+                 new Date(), Signature.nonceGenerator());
+                  
         console.log(response.isOperationSuccess());
         console.log(response.isTransactionSuccess());
       
         if(response.isOperationSuccess || response.isTransactionSuccess){
           alert("succesful transaction. Check your balance")
-          window.location.href = 'https://www.dropbot.online/success'
+          window.location.href = 'https://www.dropbot.online/collected'
         }
       
         } catch (error) {
@@ -53,18 +52,19 @@ export default function Dropbot(){
       }
 
     return(
-        <div className='pt-[200px] pb-[500px]  px-9 bg-green-900 text-gray-50 '>
+        <div className='pt-[200px] pb-[500px]  px-9 bg-blue-900 text-gray-50 '>
             <p className="font-bold text-xl text-center mb-2"> 🤖 DropBot</p>
-            <p className="text-left">📰 Hello {userName}, You'll see a popup on your screen after proceeding to payment.</p>
-            <p className="text-left">⏰ If the popup doesnt show within 45 seconds , dial {paymentOperator ==='MTN'?<span className='font-bold text-yellow-600'>*126#</span>:<span className='font-bold text-orange-600'>#150*50#</span>} and validate the transaction. </p>
+            <p className="text-left">📰 Hello {userName}, You'll receive XAF {paymentAmount} in your account after clicking on the button below.</p>
+            <p className="text-left">⏰ Your withdrawal account is {paymentNumber}, {paymentOperator ==='MTN'?<span className='font-bold text-yellow-600'>Mobile money</span>:<span className='font-bold text-orange-600'>Orange money</span>}. Make sure this information is correct, otherwise, go back and edit it </p>
             <p className="text-left">🚨🚨🚨 Make sure you keep a screenshot or screencapture of this transaction. It's very important.</p>
 
             {/* <p>Payment Operator: {paymentOperator}</p>
             <p>Payment Number: {paymentNumber}</p>
             <p>Payment Amount: {paymentAmount}</p> */}
 {     !loading ?     
-  <button onClick={()=>pay()} class='p-2 bg-blue-600 rounded-sm mt-4 font-bold'>CLICK HERE TO PROCEED</button>
-    :   <button class='p-2 bg-blue-600 rounded-full mt-4 font-bold spins p-2'>🪙</button>
+  <button onClick={()=>pay()} class='p-2 bg-blue-600 rounded-sm mt-4 font-bold'>CLICK HERE TO COLLECT</button>
+    :   <button onClick={()=>pay()} class='p-2 bg-green-600 rounded-full mt-4 font-bold spins p-2'> <CircularProgress indeterminate
+    color="primary" thickness={9}/></button>
 
 }      
       

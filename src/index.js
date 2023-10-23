@@ -12,6 +12,8 @@ import Cards from './Pages/Cards';
 import Home2 from './Pages/Home2';
 import Cards2 from './Pages/Cards2';
 import Dropbot from './Pages/Dropbot';
+import DropbotWithdraw from './Pages/DropbotWithDraw';
+
 
 
 const router = createBrowserRouter([
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/dropbotDeposit/:id",
     element: <Dropbot/>,
+  },
+  {
+    path: "/dropbotWithdraw/:id",
+    element: <DropbotWithdraw/>,
   },
 ]);
 
