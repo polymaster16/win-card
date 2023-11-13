@@ -47,7 +47,7 @@ export default function Dropbot(){
           .then(()=>{
 
           alert("Succesful transaction!! Your votes were computed.")
-          window.location.href = 'https://www.dropbot.online/success'
+          window.location.href = 'https://miss-masters.vercel.app/'
           })
           .catch((err)=>{
            alert(err)
