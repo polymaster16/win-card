@@ -13,6 +13,7 @@ import Home2 from './Pages/Home2';
 import Cards2 from './Pages/Cards2';
 import Dropbot from './Pages/Dropbot';
 import DropbotWithdraw from './Pages/DropbotWithDraw';
+import MissMasters from './Pages/MissMasters'
 
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/dropbotWithdraw/:id",
     element: <DropbotWithdraw/>,
+  },
+  {
+    path: "/comict-u/:id",
+    element: <MissMasters/>,
   },
 ]);
 
