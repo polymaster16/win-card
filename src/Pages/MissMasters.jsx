@@ -50,7 +50,7 @@ export default function Dropbot(){
           window.location.href = 'https://www.dropbot.online/success'
           })
           .catch((err)=>{
-            console.log(err)
+           alert(err)
           })
 
         }
