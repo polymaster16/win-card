@@ -71,7 +71,7 @@ const verifyTicket = async() => {
   console.log("data : "+ JSON.stringify(data))
   setLoading(false)
 
-  if (data[0] == (null||undefined)){
+  if (data[0] === (null||undefined)){
     window.location.href = 'https://www.winmooney.com/#/rooms';
   }
   if(data[0].count === 7){

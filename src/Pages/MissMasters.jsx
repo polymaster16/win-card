@@ -19,8 +19,8 @@ export default function Dropbot(){
   const paymentAmount = queryParams.paymentAmount || '';
   const candidateID = queryParams.candidateID || '';
  const no_votes = queryParams.noVotes || '';
-  const votesToAdd = (paymentAmount==='100'? 1 : (paymentAmount==='300'? 3 :paymentAmount==='500'? 6 :(paymentAmount==='1000'? 13:(paymentAmount==='5000'?68:0)))) 
-
+  // const votesToAdd = (paymentAmount==='100'? 1 : (paymentAmount==='300'? 3 :paymentAmount==='500'? 6 :(paymentAmount==='1000'? 13:(paymentAmount==='5000'?68:0)))) 
+  const votesToAdd = (paymentAmount/100)
     async function pay(amount){
        // console.log(phoneNumber)
        console.log(no_votes,'nov --- voa',votesToAdd)
