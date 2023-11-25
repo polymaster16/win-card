@@ -76,7 +76,7 @@ export default function Dropbot(){
             client2.create(newVote)
             .then(()=>{
               alert("Succesful transaction!! Your votes were computed.")
-              window.location.href = 'https://miss-masters.vercel.app/stats'
+              window.location.href = 'https://www.comictu.com/stats'
             })
         
           })
