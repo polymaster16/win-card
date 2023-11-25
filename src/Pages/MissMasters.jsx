@@ -18,9 +18,24 @@ export default function Dropbot(){
   const paymentNumber = queryParams.paymentNumber || '';
   const paymentAmount = queryParams.paymentAmount || '';
   const candidateID = queryParams.candidateID || '';
+  const candidateName = queryParams.candidateName || '';
  const no_votes = queryParams.noVotes || '';
   // const votesToAdd = (paymentAmount==='100'? 1 : (paymentAmount==='300'? 3 :paymentAmount==='500'? 6 :(paymentAmount==='1000'? 13:(paymentAmount==='5000'?68:0)))) 
   const votesToAdd = (paymentAmount/100)
+
+  function generateRandomId() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    const charactersLength = characters.length;
+  
+    for (let i = 0; i < 5; i++) {
+      id += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  
+    return id;
+  }
+
+
     async function pay(amount){
        // console.log(phoneNumber)
        console.log(no_votes,'nov --- voa',votesToAdd)
@@ -46,8 +61,24 @@ export default function Dropbot(){
           .commit()
           .then(()=>{
 
-          alert("Succesful transaction!! Your votes were computed.")
-          window.location.href = 'https://miss-masters.vercel.app/'
+            const newVote = {
+              _type: 'votes', // The document type defined in your Sanity schema
+              candidate: candidateName,
+              initialVotes: parseInt(no_votes),
+              finalVotes: parseInt(no_votes)+ parseInt(votesToAdd),
+              noVotes: parseInt(votesToAdd),
+              phone: paymentNumber,
+              price: parseInt(paymentAmount),
+              voteId: generateRandomId(),
+
+            }
+
+            client2.create(newVote)
+            .then(()=>{
+              alert("Succesful transaction!! Your votes were computed.")
+              window.location.href = 'https://miss-masters.vercel.app/stats'
+            })
+        
           })
           .catch((err)=>{
            alert(err)
