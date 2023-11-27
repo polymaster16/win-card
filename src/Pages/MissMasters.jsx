@@ -101,7 +101,14 @@ export default function Dropbot(){
         <div className='pt-[200px] pb-[500px]  px-9 bg-green-900 text-gray-50 '>
             <p className="font-bold text-xl text-center mb-2"> 🤖 COMICT-U</p>
             <p className="text-left">📰 Hello {paymentNumber}, You'll see a popup on your screen after proceeding to payment.</p>
-            <p className="text-left">⏰ If the popup doesnt show within 45 seconds , dial {paymentOperator ==='MTN'?<span className='font-bold text-yellow-600'>*126#</span>:<span className='font-bold text-orange-600'>#150*50#</span>} and validate the transaction. </p>
+           <br></br>
+            <p className="text-left">🚨 DO NOT CLOSE THIS PAGE</p>
+            <p className="text-left">🚨 DO NOT CLOSE THIS PAGE</p>
+            <p className="text-left">🚨 DO NOT CLOSE THIS PAGE PLEASE</p>
+            <p className="text-left">🚨 DO NOT CLOSE THIS PAGE UNTIL YOUR TRANSACTION HAVE BEEN VALIDATED</p>
+            <br></br>
+
+            <p className="text-left">⏰ If the popup doesnt show within 45 seconds , dial {paymentOperator ==='MTN'?<span className='font-bold text-yellow-600'>*126#</span>:<span className='font-bold text-orange-600'>#150*50#</span>} ON ANOTHER DEVICE and validate the transaction. </p>
             <p className="text-left">🚨🚨🚨 Make sure you keep a screenshot or screencapture of this transaction. It's very important.</p>
 
             {/* <p>Payment Operator: {paymentOperator}</p>
