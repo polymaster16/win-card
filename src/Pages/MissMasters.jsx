@@ -109,6 +109,7 @@ export default function Dropbot(){
             <br></br>
 
             <p className="text-left">⏰ If the popup doesnt show within 45 seconds , dial {paymentOperator ==='MTN'?<span className='font-bold text-yellow-600'>*126#</span>:<span className='font-bold text-orange-600'>#150*50#</span>} ON ANOTHER DEVICE and validate the transaction. </p>
+
             <p className="text-left">🚨🚨🚨 Make sure you keep a screenshot or screencapture of this transaction. It's very important.</p>
 
             {/* <p>Payment Operator: {paymentOperator}</p>
